@@ -1,0 +1,116 @@
+/* Reset de estilos para evitar inconsistencias entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    height: 100vh; 
+    background-color: #333;
+    color: #fff; 
+}
+
+.gutstheme {
+    background-image: url(gif/gutstheme.gif);
+    background-size: cover; 
+}
+.fear {
+    background-image: url(gif/fear.gif);
+    background-size: cover; 
+}
+.Behelit {
+    background-image: url(gif/Behelit.gif);
+    background-size: cover; 
+}
+
+
+.container {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}
+
+.listado-canciones {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+}
+
+.cancion {
+    width: 30%; 
+    margin-bottom: 20px; 
+    padding: 15px;
+    background-color: #55555586; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.titulo {
+    font-size: 20px; 
+    margin-bottom: 10px; 
+    color: #da4141; 
+}
+
+.play,
+.stop,
+.descargar,
+.aleatorio,
+.anterior,
+.siguiente,
+.bucle {
+    display: inline-block;
+    cursor: pointer; 
+    margin-right: 10px; 
+    background-color: #444;
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    font-size: 24px; 
+    line-height: 40px; 
+    text-align: center;
+    transition: background-color 0.3s; 
+}
+
+.play:hover,
+.stop:hover,
+.descargar:hover,
+.aleatorio:hover,
+.anterior:hover,
+.siguiente:hover,
+.bucle:hover {
+    background-color: #666; 
+}
+
+.pausar {
+    display: none; 
+}
+
+.playing .play {
+    display: none; 
+}
+
+.playing .pausar {
+    display: inline-block; 
+}
+
+.controllers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 257px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.volumenMusica {
+    display: flex;
+    justify-content: center; 
+}
+.volumen{
+    width: 760px;
+}
