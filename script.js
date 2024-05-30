@@ -1,5 +1,5 @@
 // Obtener referencias a los elementos del DOM
-const playCancion = document.querySelector('.play');
+const playPauseButton = document.querySelector('.play-pause');
 const stopCancion = document.querySelector('.stop');
 const anterior = document.querySelector('.anterior');
 const siguiente = document.querySelector('.siguiente');
@@ -54,6 +54,7 @@ function changeBackground(cancion) {
 // Función para reproducir una canción aleatoria
 function reproducirAleatorio() {
     modoAleatorio = !modoAleatorio;
+    aleatorio.classList.toggle('active', modoAleatorio);
     if (modoAleatorio) {
         let randomIndex = Math.floor(Math.random() * canciones.length);
         let cancionAleatoria = canciones[randomIndex];
@@ -66,24 +67,29 @@ function reproducirAleatorio() {
 // Función para reproducir en bucle la canción actual
 function reproducirEnBucle() {
     isBucle = !isBucle;
+    bucle.classList.toggle('active', isBucle);
     if (audio) {
         audio.loop = isBucle;
     }
 }
 
-// Event listener para el botón de reproducción
-playCancion.addEventListener('click', function () {
-    let cancion = this.getAttribute('id');
-    cancionActualIndex = canciones.indexOf(cancion);
-    reproducirCancion(cancion);
-});
-
-// Event listener para el botón de pausa
-stopCancion.addEventListener('click', function () {
-    if (audio) {
+// Función para manejar el botón de reproducción/pausa
+function togglePlayPause() {
+    if (audio && !audio.paused) {
         audio.pause();
+        playPauseButton.classList.remove('playing');
+        playPauseButton.querySelector('.material-icons').textContent = 'play_circle';
+    } else {
+        let cancion = playPauseButton.getAttribute('id');
+        cancionActualIndex = canciones.indexOf(cancion);
+        reproducirCancion(cancion);
+        playPauseButton.classList.add('playing');
+        playPauseButton.querySelector('.material-icons').textContent = 'pause_circle';
     }
-});
+}
+
+// Event listener para el botón de reproducción/pausa
+playPauseButton.addEventListener('click', togglePlayPause);
 
 // Event listener para el control de volumen
 volumen.addEventListener('input', function () {
