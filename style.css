@@ -15,6 +15,13 @@ body {
     background-color: #333;
     color: #fff; 
 }
+.active {
+    background-color: green; 
+    color: rgb(201, 20, 20); 
+}
+.playing .material-icons {
+    content: "pause_circle";
+}
 
 .gutstheme {
     background-image: url(gif/gutstheme.gif);
